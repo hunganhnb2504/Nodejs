@@ -6,10 +6,10 @@ const port = process.env.PORT || 3000
 function serveStaticFile(res, path, contentType, responseCode = 200) {
     fs.readFile(__dirname + path, (err, data)=> {
         if(err){
-            res.witreHead(500,{ 'Content-Type': 'text/plain'})
+            res.writeHead(500,{ 'Content-Type': 'text/plain'})
             return res.end('500 - Internal Error')
         }
-        res.witreHead(responseCode, {'Content-Type': contentType})
+        res.writeHead(responseCode, {'Content-Type': contentType})
         res.end(data)
     })
 }
