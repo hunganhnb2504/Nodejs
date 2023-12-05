@@ -1,0 +1,1 @@
+app1.use(express.static(__dirname + '/public'))

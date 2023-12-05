@@ -11,7 +11,11 @@ const port = process.env.PORT || 3000
 app.get ('/',(req, res)=> res.render('home'))
 
 const fortunes =[
-    "Rivers need spings"
+    "Rivers need spings",
+    "Rivers need spings1",
+    "Rivers need spings2",
+    "Rivers need spings3"
+
 ]
 
 
@@ -21,7 +25,6 @@ app.get('/about', (req,res)=> {
 })
 
 app.use((req, res) => {
-    res.type('text/plain')
     res.status(404)
     res.render('404')
 
@@ -29,7 +32,6 @@ app.use((req, res) => {
 
 app.use((err, req, res, next) =>{
     console.error(err.message)
-    res.type('text/plain')
     res.status(500)
     res.render('500')
 })
