@@ -9,19 +9,20 @@ app1.set('view engine','handlebars')
 app1.use(express.static(__dirname + '/public'))
 const port = process.env.PORT || 3000
 
-app1.get('/',(req, res)=> res.render('home'))
+const products = [
+    { name: 'Product 1', Image: '/img/product1.jpeg'},
+    { name: 'Product 2', Image: '/img/product2.jpeg'}
 
-// const fortunes =[
-//     "Rivers need spings",
-//     "Rivers need spings1",
-//     "Rivers need spings2",
-//     "Rivers need spings3"
+]
 
-// ]
+app1.get('/',(req, res)=> res.render('home',{title: 'Home ',message:'Welcome to uor website!'}))
+
+app1.get('/product',(req,res)=>{
+    res.render('products',{products});
+})
 
 app1.get('/about',(req,res)=>{
-    // const randomFortune = fortunes[Math.floor(Math,random()*fortunes.length)]
-    res.render('about')
+    res.render('about',{title: 'About Us',message:'Learn more about our company!'})
 })
 
 app1.use((req,res)=>{
